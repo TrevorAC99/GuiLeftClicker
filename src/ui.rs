@@ -1,3 +1,5 @@
+use egui::Vec2;
+
 use crate::messenger::{Mailbox, Message};
 
 // Defaults to one click every three seconds
@@ -5,7 +7,9 @@ const DEFAULT_SUBINTERVAL_MILLIS: u64 = 250;
 const DEFAULT_SUBINTERVAL_COUNT: u64 = 12;
 
 pub fn start_ui(mb: Mailbox) {
-    let native_options = eframe::NativeOptions::default();
+    let mut native_options = eframe::NativeOptions::default();
+    native_options.viewport = native_options.viewport.with_inner_size(Vec2 { x: 300.0, y: 150.0});
+    
     eframe::run_native(
         "Left Click Bot",
         native_options,
