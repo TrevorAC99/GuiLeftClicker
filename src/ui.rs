@@ -13,7 +13,7 @@ pub fn start_ui(mb: Mailbox) {
     eframe::run_native(
         "Left Click Bot",
         native_options,
-        Box::new(|cc| Box::new(LeftClickBotApp::new(cc, mb))),
+        Box::new(|cc| Ok(Box::new(LeftClickBotApp::new(cc, mb)))),
     )
     .unwrap();
 }
